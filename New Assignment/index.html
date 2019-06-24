@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>    
+<link rel="stylesheet" href="index.css">
+    
+<style>
+    
+    
+</style>
+</head>
+<body>
+    <div id="login_success" style="background-color: limegreen; color:white;">
+        <center>Login Successfull</center>  
+    </div>
+    <div id="login_failed" style="background-color: red; color: white;">
+        <center>Login Failed</center>
+    </div>
+    <div id="container">
+        <div style="color:white;">Login Form</div>
+        <div id="form_container">
+            <form>
+                <div id="email_div">
+                     <span id="email_label">   <label>Email :</label> </span>
+                        <input type="email" id="email" placeholder="Enter Email" required>
+                </div>
+                <div id="password_div">
+                        <span id="password_label"><label>Password :</label></span>
+                        <input type="password" id="password" placeholder="Enter Password" required>
+                </div>
+
+
+
+            </form>
+        </div>
+        <div id="login_footer">
+            <button id="submit" onclick="submit();">Submit</button>
+            <button id="reset" onclick="reset();">Reset</button>
+        </div>
+    
+    
+    
+    </div>
+    
+    
+    
+</body>
+<script type="text/javascript" src="index.js"></script>
+</html>

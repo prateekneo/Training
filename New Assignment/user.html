@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>User Form</title>
+        <style>
+            body{
+                margin : 0;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+                }
+
+                li {
+                float: left;
+                }
+
+                li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                }
+
+                li a:hover:not(.active) {
+                background-color: #111;
+                }
+
+                .active {
+                background-color: #4CAF50;
+            }
+            #container{
+                margin-top: 50px;
+                margin-left : 50px;
+                margin-right : 50px;
+                border: 2px solid black;    
+                padding : 15px 15px 15px 15px;
+            }
+            #container_edit{
+                margin-top: 50px;
+                margin-left : 50px;
+                margin-right : 50px;
+                border: 2px solid black;    
+                padding : 15px 15px 15px 15px;
+            }
+            input{
+                padding:10px 10px 10px 10px;
+            }
+            #div_name, #div_age, #div_salary, #div_email, #div_remarks{
+                padding : 5px 5px 5px 5px;
+            }
+            #name{
+                margin-left:50px;
+            }
+            #age{
+                margin-left:62px;
+            }
+            #salary{
+                margin-left:48px;
+            }
+            #email{
+                margin-left:50px;
+            }
+            #remarks{
+                margin-left:30px;
+                width: 300px;
+                height: 50px;
+            }
+            #name_edit{
+                margin-left:50px;
+            }
+            #age_edit{
+                margin-left:62px;
+            }
+            #salary_edit{
+                margin-left:48px;
+            }
+            #email_edit{
+                margin-left:50px;
+            }
+            #remarks_edit{
+                margin-left:30px;
+                width: 300px;
+                height: 50px;
+            }
+            #div_button{
+                padding: 5px 5px 5px 5px;
+                margin-left : 100px;
+            }
+            table,td,th{
+                border : 1px solid black;
+                border-collapse: collapse;
+                margin-top: 50px;
+                margin-left : 50px;
+                padding : 10px 10px 10px 10px;
+            }
+            #div_search{
+                margin-top : 50px;
+                margin-left : 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "header">
+            <div id="nav">
+                <ul>
+                    <li id = "add" class="active" onclick="add();"><a href="#">Add</a></li>
+                    <li id="list" onclick="list();"><a href="#">List</a></li>
+                    <li id="search" onclick="search_user();"><a href = "#">Search</a></li>
+                    <li id="edit_del" onclick="edit_del();"><a href = "#">Edit / Delete</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="container">
+            <form>
+                <div id="div_name">
+                    <span id="label_name"><label>Name :</label></span>
+                    <input type="text" id="name" placeholder="Enter Name">
+                </div>
+                <div id="div_age">
+                    <span id="label_age"><label>Age :</label></span>
+                    <input type="number" id="age" placeholder="Enter Age">
+                </div>
+                <div id="div_salary">
+                    <span id="label_salary"><label>Salary :</label></span>
+                    <input type="number" id="salary" placeholder="Enter Salary">
+                </div>
+                <div id="div_email">
+                    <span id="label_email"><label>Email :</label></span>
+                    <input type="email" id="email" placeholder="Enter Email">
+                </div>
+                <div id="div_remarks">
+                    <span id="label_remarks"><label>Remarks :</label></span>
+                    <textarea id="remarks"></textarea>
+                </div>
+                <div id="div_button">
+                    <input type="button" id="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+        <div id="tab" style="display:none;">
+
+        </div>
+        <div id="search_tab" style="display:none;">
+            <div id="div_search">
+                <span id="label_search"><label>Search :</label></span>
+                <input id="search_input" type="text" placeholder="Search By Name or Email" onkeyup="search_person();"> 
+            </div>
+            <div id="show_search">
+
+            </div>
+        </div>
+        <div id="edit_del_tab" style="display: none;">
+            <div id="container_edit" style="display: none;">
+                <form>
+                    <input type="hidden" id="index_object">
+                    <div id="div_name">
+                        <span id="label_name"><label>Name :</label></span>
+                        <input type="text" id="name_edit" placeholder="Enter Name">
+                    </div>
+                    <div id="div_age">
+                        <span id="label_age"><label>Age :</label></span>
+                        <input type="number" id="age_edit" placeholder="Enter Age">
+                    </div>
+                    <div id="div_salary">
+                        <span id="label_salary"><label>Salary :</label></span>
+                        <input type="number" id="salary_edit" placeholder="Enter Salary">
+                    </div>
+                    <div id="div_email">
+                        <span id="label_email"><label>Email :</label></span>
+                        <input type="email" id="email_edit" placeholder="Enter Email">
+                    </div>
+                    <div id="div_remarks">
+                        <span id="label_remarks"><label>Remarks :</label></span>
+                        <textarea id="remarks_edit"></textarea>
+                    </div>
+                    <div id="div_button">
+                        <input type="button" id="submit_edit" value="Submit">
+                    </div>
+                </form>
+            </div>
+            <div id="show_table">
+
+            </div>
+
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="user.js"></script>
+    <script>
+        /*function afterload () {
+            var formtab = document.getElementById('container');
+            formtab.style.display = 'block';
+            document.getElementById('add').classList.add('active');
+            document.getElementById('list').classList.remove('active');
+            var listtab = document.getElementById('tab');
+            listtab.style.display = 'none';
+        }*/
+         
+        function add(){
+            var formtab = document.getElementById('container');
+            formtab.style.display = 'block';
+            document.getElementById('add').classList.add('active');
+            document.getElementById('list').classList.remove('active');
+            document.getElementById('search').classList.remove('active');
+            document.getElementById('edit_del').classList.remove('active');
+            var listtab = document.getElementById('tab');
+            listtab.style.display = 'none';
+            var searchtab = document.getElementById('search_tab');
+            searchtab.style.display='none';
+            var editdeltab = document.getElementById('edit_del_tab');
+            editdeltab.style.display='none';
+        }
+        function list(){
+            var formtab = document.getElementById('container');
+            formtab.style.display = 'none';
+            document.getElementById('list').classList.add('active');
+            document.getElementById('add').classList.remove('active');
+            document.getElementById('search').classList.remove('active');
+            document.getElementById('edit_del').classList.remove('active');
+            var listtab = document.getElementById('tab');
+            listtab.style.display = 'block';
+            var searchtab = document.getElementById('search_tab');
+            searchtab.style.display='none';
+            var editdeltab = document.getElementById('edit_del_tab');
+            editdeltab.style.display='none';
+            list_display();
+        }
+        function search_user(){
+            var formtab = document.getElementById('container');
+            formtab.style.display = 'none';
+            document.getElementById('list').classList.remove('active');
+            document.getElementById('add').classList.remove('active');
+            document.getElementById('search').classList.add('active');
+            document.getElementById('edit_del').classList.remove('active');
+            var listtab = document.getElementById('tab');
+            listtab.style.display = 'none';
+            var searchtab = document.getElementById('search_tab');
+            searchtab.style.display='block';
+            var editdeltab = document.getElementById('edit_del_tab');
+            editdeltab.style.display='none';
+        }
+        function edit_del(){
+            edit_delete_call();
+            var formtab = document.getElementById('container');
+            formtab.style.display = 'none';
+            document.getElementById('list').classList.remove('active');
+            document.getElementById('add').classList.remove('active');
+            document.getElementById('search').classList.remove('active');
+            document.getElementById('edit_del').classList.add('active');
+            var listtab = document.getElementById('tab');
+            listtab.style.display = 'none';
+            var searchtab = document.getElementById('search_tab');
+            searchtab.style.display='none';
+            var editdeltab = document.getElementById('edit_del_tab');
+            editdeltab.style.display='block';
+            
+        }
+    </script>
+</html>
