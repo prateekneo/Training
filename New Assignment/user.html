@@ -102,6 +102,18 @@
                 margin-top : 50px;
                 margin-left : 50px;
             }
+            #name_error, #age_error, #salary_error, #email_error{
+                padding : 5px 5px;
+                margin-left : 100px;
+                margin-right: 926px;
+                display: none;
+            }
+            #name_empty, #age_empty, #salary_empty, #email_empty, #remark_empty{
+                padding : 5px 5px;
+                margin-left : 100px;
+                margin-right: 926px;
+                display : none;
+            }
         </style>
     </head>
     <body>
@@ -112,30 +124,46 @@
                     <li id="list" onclick="list();"><a href="#">List</a></li>
                     <li id="search" onclick="search_user();"><a href = "#">Search</a></li>
                     <li id="edit_del" onclick="edit_del();"><a href = "#">Edit / Delete</a></li>
+                    <li id="edit_del" onclick="logout();" style="text-align: right;"><a href = "#">Logout</a></li>
                 </ul>
             </div>
+        </div>
+        <div id="login_success" style="background-color: limegreen; color:white; padding : 5px 5px 5px 5px; display:none;">
+                <center>User Successfully Added</center>  
+        </div>
+        <div id="login_failed" style="background-color: red; color: white; padding : 5px 5px 5px 5px; display:none;">
+                <center>Submission Failed</center>
         </div>
         <div id="container">
             <form>
                 <div id="div_name">
                     <span id="label_name"><label>Name :</label></span>
                     <input type="text" id="name" placeholder="Enter Name">
+                    <span id="name_empty" style="background-color : red; color:white;">Please Enter Name</span>
+                    <span id="name_error" style="background-color : red; color:white;">Only Characters are allowed in Name</span>
                 </div>
                 <div id="div_age">
                     <span id="label_age"><label>Age :</label></span>
                     <input type="number" id="age" placeholder="Enter Age">
+                    <span id="age_empty" style="background-color : red; color:white;">Please Enter Age</span>
+                    <span id="age_error" style="background-color : red; color:white;">Only digits are allowed in Age</span>
                 </div>
                 <div id="div_salary">
-                    <span id="label_salary"><label>Salary :</label></span>
+                    <span id="label_salary" ><label>Salary :</label></span>
                     <input type="number" id="salary" placeholder="Enter Salary">
+                    <span id="salary_empty" style="background-color : red; color:white;">Please Enter Salary</span>
+                    <span id="salary_error" style="background-color : red; color:white;">Only digits are allowed in Salary</span>
                 </div>
                 <div id="div_email">
                     <span id="label_email"><label>Email :</label></span>
-                    <input type="email" id="email" placeholder="Enter Email">
+                    <input type="email" id="email" placeholder="Enter Email" required>
+                    <span id="email_empty" style="background-color : red; color:white;">Please Enter Email</span>
+                    <span id="email_error" style="background-color : red; color:white;">Please Enter the Correct Email</span>
                 </div>
                 <div id="div_remarks">
                     <span id="label_remarks"><label>Remarks :</label></span>
-                    <textarea id="remarks"></textarea>
+                    <textarea id="remarks" required></textarea>
+                    <span id="remark_empty" style="background-color : red; color:white;">Please Enter Remarks</span>
                 </div>
                 <div id="div_button">
                     <input type="button" id="submit" value="Submit">
@@ -160,23 +188,23 @@
                     <input type="hidden" id="index_object">
                     <div id="div_name">
                         <span id="label_name"><label>Name :</label></span>
-                        <input type="text" id="name_edit" placeholder="Enter Name">
+                        <input type="text" id="name_edit" placeholder="Enter Name" required>
                     </div>
                     <div id="div_age">
                         <span id="label_age"><label>Age :</label></span>
-                        <input type="number" id="age_edit" placeholder="Enter Age">
+                        <input type="number" id="age_edit" placeholder="Enter Age" required>
                     </div>
                     <div id="div_salary">
                         <span id="label_salary"><label>Salary :</label></span>
-                        <input type="number" id="salary_edit" placeholder="Enter Salary">
+                        <input type="number" id="salary_edit" placeholder="Enter Salary" required>
                     </div>
                     <div id="div_email">
                         <span id="label_email"><label>Email :</label></span>
-                        <input type="email" id="email_edit" placeholder="Enter Email">
+                        <input type="email" id="email_edit" placeholder="Enter Email" required>
                     </div>
                     <div id="div_remarks">
                         <span id="label_remarks"><label>Remarks :</label></span>
-                        <textarea id="remarks_edit"></textarea>
+                        <textarea id="remarks_edit" required></textarea>
                     </div>
                     <div id="div_button">
                         <input type="button" id="submit_edit" value="Submit">

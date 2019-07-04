@@ -20,7 +20,7 @@ if(x == 1){
     document.getElementById('logged_in').style.display = 'block';
     
     setTimeout(function(){
-        window.location = "user.html";
+        window.location = "image.html";
     },2000);
 }
 

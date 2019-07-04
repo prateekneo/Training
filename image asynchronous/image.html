@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.loader {
+  margin-top : 230px;
+  margin-left : 600px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader"></div>
+<div id="img_load"></div>
+
+</body>
+<script>
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+         document.getElementById('img_load').innerHTML = '<img src="https://via.placeholder.com/150" alt="image">';
+         resolve('resolved');
+      },3000);
+      
+      
+    }).then((resolve) => {
+      document.getElementById('loader').style.display = 'none';
+    });
+    // let func = async function loadDoc() {
+
+    //   await setTimeout(() => {
+    //    document.getElementById('img_load').innerHTML = '<img src="https://via.placeholder.com/150" alt="image">';
+    //    return 'resolved';
+    //   }, 4000);
+      
+    // };
+    // func().then((result) => {
+    //   //alert(result);
+
+    //   document.getElementById('loader').style.display = 'none';
+    // });
+
+    // async function loadDoc(){
+    //     var xhttp = new XMLHttpRequest();
+    //     xhttp.onreadystatechange = function() {
+    //         if (this.readyState == 4 && this.status == 200) {
+    //             document.getElementById('loader').style.display = 'none';
+    //             console.log(typeof(this.responseText));
+    //             document.getElementById("img_load").innerHTML = '<img src ="image/png;base64,' + this.responseText+ '" alt="image">';
+    //         }
+    //     };
+    //     await xhttp.open("GET", "https://via.placeholder.com/150", true);
+    //     //xhttp.setEncoding('base64');
+    //     await xhttp.send(); 
+    // }
+    // loadDoc();
+</script>
+</html>

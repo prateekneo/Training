@@ -1,3 +1,54 @@
+var login = [];
+var y = window.localStorage.getItem('login');
+
+login = JSON.parse(y);
+
+if(login[1].session == 0){
+    window.location = 'index.html';
+}
+
+function logout(){
+
+    let login = [];
+    login = JSON.parse(window.localStorage.getItem('login'));
+
+    login[1].session = 0;
+    window.localStorage.setItem('login',JSON.stringify(login));
+        setTimeout(function(){
+            window.location = "index.html";
+        },2000);
+}
+
+function validateEmail(email)
+{
+    var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+        if (!reg.test(email))
+        {
+            //alert('Please enter a valid email address.');
+            return true;
+        }
+        return false;
+}
+function allLetters(name)
+{
+    var letters = /^[A-Za-z\s]+$/;
+        if (!letters.test(name))
+        {
+            //alert('Please enter a valid email address.');
+            return true;
+        }
+        return false;
+}
+function allNumbers(value)
+{
+    var numbers = /^[0-9]+$/;
+        if (!numbers.test(value))
+        {
+            //alert('Please enter a valid email address.');
+            return true;
+        }
+        return false;
+}
 function search_person(){
     var inp = document.getElementById('search_input').value;
     //alert(inp);
@@ -31,6 +82,8 @@ function search_person(){
 
 var submit = document.getElementById("submit");
 submit.onclick = function () {
+
+
     //alert('prateek');
     var name = document.getElementById('name').value;
     var age = document.getElementById('age').value;
@@ -38,20 +91,181 @@ submit.onclick = function () {
     var email = document.getElementById('email').value;
     var remarks = document.getElementById('remarks').value;
 
-    var emps = [];
-    var y = window.localStorage.getItem("emps");
-    if (y) {
-        emps = JSON.parse(y);;
+    
+
+    if(name == ''){
+
+        document.getElementById('login_success').style.display='none';
+        document.getElementById('login_failed').style.display='block';
+        setTimeout(function(){
+            document.getElementById('login_failed').style.display='none';
+           
+        },3000);
+        document.getElementById('name_empty').style.display = 'block';
+        document.getElementById('age_empty').style.display = 'none';
+        document.getElementById('salary_empty').style.display = 'none';
+        document.getElementById('email_empty').style.display = 'none';
+        document.getElementById('remark_empty').style.display = 'none';
+
     }
-    console.log(emps);
-    emps.push({
-        "addname" : name, "addage" : age, "addsalary" : salary, "addemail" : email, "addremark" : remarks
-    });
-    console.log(emps);
+    else{
+         if(allLetters(name)){
 
-    window.localStorage.setItem("emps", JSON.stringify(emps));
-    location.reload();
+            document.getElementById('login_success').style.display='none';
+            document.getElementById('login_failed').style.display='block';
+            setTimeout(function(){
+                document.getElementById('login_failed').style.display='none';
+               
+            },3000);
+            document.getElementById('name_error').style.display = 'block';
+            document.getElementById('name_empty').style.display = 'none';
+            document.getElementById('age_empty').style.display = 'none';
+            document.getElementById('salary_empty').style.display = 'none';
+            document.getElementById('email_empty').style.display = 'none';
+            document.getElementById('remark_empty').style.display = 'none';
+         } else {
 
+            if(age == ''){
+                document.getElementById('login_success').style.display='none';
+                document.getElementById('login_failed').style.display='block';
+                setTimeout(function(){
+                    document.getElementById('login_failed').style.display='none';
+                   
+                },3000);
+                document.getElementById('name_error').style.display = 'none';
+                document.getElementById('name_empty').style.display = 'none';
+                document.getElementById('age_empty').style.display = 'block';
+                document.getElementById('salary_empty').style.display = 'none';
+                document.getElementById('email_empty').style.display = 'none';
+                document.getElementById('remark_empty').style.display = 'none';
+            }
+            else{
+                
+                if(allNumbers(age)){
+
+                    document.getElementById('login_success').style.display='none';
+                    document.getElementById('login_failed').style.display='block';
+                    setTimeout(function(){
+                        document.getElementById('login_failed').style.display='none';
+                       
+                    },3000);
+                    document.getElementById('name_error').style.display = 'none';
+                    document.getElementById('name_empty').style.display = 'none';
+                    document.getElementById('age_empty').style.display = 'none';
+                    document.getElementById('age_error').style.display = 'block';
+                    document.getElementById('salary_empty').style.display = 'none';
+                    document.getElementById('email_empty').style.display = 'none';
+                    document.getElementById('remark_empty').style.display = 'none';
+                } else {
+
+                        if(salary == ''){
+                            
+                            document.getElementById('login_success').style.display='none';
+                            document.getElementById('login_failed').style.display='block'; 
+                            setTimeout(function(){
+                                document.getElementById('login_failed').style.display='none';
+                               
+                            },3000); 
+                            document.getElementById('age_empty').style.display = 'none';
+                            document.getElementById('age_error').style.display = 'none';
+                            document.getElementById('salary_empty').style.display = 'block';
+                            document.getElementById('email_empty').style.display = 'none';
+                            document.getElementById('remark_empty').style.display = 'none';
+                        } else {
+                            
+                                if(allNumbers(salary)){
+                                    
+                                    document.getElementById('login_success').style.display='none';
+                                    document.getElementById('login_failed').style.display='block';
+                                    setTimeout(function(){
+                                        document.getElementById('login_failed').style.display='none';
+                                       
+                                    },3000);
+                                    document.getElementById('age_empty').style.display = 'none';
+                                    document.getElementById('age_error').style.display = 'none';
+                                    document.getElementById('salary_empty').style.display = 'none';
+                                    document.getElementById('salary_error').style.display = 'block';
+                                    document.getElementById('email_empty').style.display = 'none';
+                                    document.getElementById('remark_empty').style.display = 'none';
+
+                                    } else {
+
+                                        if(email == ''){
+                                            
+                                            document.getElementById('login_success').style.display='none';
+                                            document.getElementById('login_failed').style.display='block';
+                                            setTimeout(function(){
+                                                document.getElementById('login_failed').style.display='none';
+                                               
+                                            },3000);
+                                            document.getElementById('salary_empty').style.display = 'none';
+                                            document.getElementById('salary_error').style.display = 'none';
+                                            document.getElementById('email_empty').style.display = 'block';
+                                            document.getElementById('remark_empty').style.display = 'none';
+                                        }
+                                        else{
+                                            
+                                            if(validateEmail(email)){
+                                                
+                                                document.getElementById('login_success').style.display='none';
+                                                document.getElementById('login_failed').style.display='block';
+                                                setTimeout(function(){
+                                                    document.getElementById('login_failed').style.display='none';
+                                                   
+                                                },3000);
+                                                document.getElementById('salary_empty').style.display = 'none';
+                                                document.getElementById('salary_error').style.display = 'none';
+                                                document.getElementById('email_empty').style.display = 'none';
+                                                document.getElementById('email_error').style.display = 'block';
+                                                document.getElementById('remark_empty').style.display = 'none';
+                                            } else {
+
+                                                if(remarks == ''){
+                                                    document.getElementById('login_success').style.display='none';
+                                                    document.getElementById('login_failed').style.display='block';
+                                                    setTimeout(function(){
+                                                        document.getElementById('login_failed').style.display='none';
+                                                       
+                                                    },3000);
+                                                    document.getElementById('email_empty').style.display = 'none';
+                                                    document.getElementById('email_error').style.display = 'none';
+                                                    document.getElementById('remark_empty').style.display = 'block';
+                                                } else {
+
+                                                    document.getElementById('login_success').style.display='block';
+                                                    document.getElementById('login_failed').style.display='none';
+                                                    setTimeout(function(){
+                                                        document.getElementById('login_success').style.display='none';
+                                                       
+                                                    },3000);
+
+                                                    document.getElementById('email_empty').style.display = 'none';
+                                                    document.getElementById('email_error').style.display = 'none';
+                                                    document.getElementById('remark_empty').style.display = 'none';
+                                                    var emps = [];
+                                                    var y = window.localStorage.getItem("emps");
+                                                    if (y) {
+                                                        emps = JSON.parse(y);;
+                                                    }
+                                                    console.log(emps);
+                                                    emps.push({
+                                                        "addname" : name, "addage" : age, "addsalary" : salary, "addemail" : email, "addremark" : remarks
+                                                    });
+                                                    console.log(emps);
+                                                
+                                                    window.localStorage.setItem("emps", JSON.stringify(emps));
+                                                    location.reload();
+                                                
+                                                }
+                                            }
+                                        }
+                                    }
+                            }
+                        }
+                    }
+                    
+            }
+        }
 }
 
 var submit_edit = document.getElementById("submit_edit");
