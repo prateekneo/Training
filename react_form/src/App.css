@@ -1,0 +1,76 @@
+.div_ele{
+    margin-top : 50px;
+    margin-bottom : 50px;
+    background-color: black;
+    text-align: center;
+    border : 1px solid black;
+    margin-left : 300px;
+    margin-right :300px;
+}
+.container, .form_div{
+    border : 1px solid black;
+}
+input {
+    padding : 10px 10px 10px 10px;
+}
+.container {
+    margin-bottom: 30px;
+    background-color: white;
+    text-align: center;
+    padding : 10px 10px 10px 10px;
+    margin-top : 50px;
+    max-width: max-content;
+}
+#input_span{
+    margin-left : 50px;
+}
+#id01{
+    color:black;
+}
+#priority_span{
+    margin-left : 30px;
+}
+#time_span{
+    margin-left : 50px;
+}
+.form_div{
+    padding : 10px 50px 20px 10px;
+     text-align: center;
+     color:white;
+     background-color : grey;
+    margin-top : 50px;
+}
+
+.submit{
+    color:black;
+}
+.td, th, td, table{
+    padding : 10px 10px 10px 10px;;
+    border : 1px solid black;
+    border-collapse: collapse;
+}
+
+.div_name, .div_age{
+    padding : 10px 10px;
+}
+label{
+    padding : 10px 10px 10px 10px;
+}
+.labels{
+    margin : 20px;
+}
+.span_name{
+    margin-left : 20px;
+}
+.span_age{
+    margin-left : 30px;
+}
+.submit{
+    margin-left : 60px;
+}
+.input_div, .priority_div, .time_div, .status_div{
+    margin: 10px 10px 10px 10px;
+}
+input{
+    color:black;
+}
