@@ -152,7 +152,7 @@ class Todo extends Component{
     }
     del = (i) => {
         let array = [];
-        this.state.temp_arr.forEach( (value, index) => {
+        this.state.arr.forEach( (value, index) => {
             if(index === i){
                  
             } else {
