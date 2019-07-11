@@ -1,0 +1,32 @@
+.container{
+    margin-top : 30px;
+}
+.form_container{
+    
+    #border : 1px solid black;
+    
+}
+.form {
+    margin : 10px 10px 10px 10px;
+    text-align: center;
+    
+}
+.todo_list{
+    margin : 20px 20px 20px 20px;
+    
+}
+.todo_list_container{
+    border : 1px solid black;
+    margin-top : 
+    
+}
+table, th, td {
+    border : 1 px solid black;
+}
+.create{
+    text-align: center;
+    margin : 20px 20px 20px 20px;
+}
+.tick, .delete{
+    color : #3b5998 ;
+}

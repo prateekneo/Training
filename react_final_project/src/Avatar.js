@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 
 class Avatar extends Component{
-    constructor(props){
-        super(props);
-    }
+    
 
     render(){
 
@@ -12,7 +10,7 @@ class Avatar extends Component{
 
         return (<div className="avatar">
         <div className="avatar_div">
-          <img src={src} alt="image" />
+          <img src={src} alt="Loading"/>
           </div>
   
       </div>)

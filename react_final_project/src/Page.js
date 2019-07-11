@@ -39,15 +39,8 @@ class Page extends React.Component {
      
   }
 
-  handleForm = (index) => {
-    let i = document.getElementById(index).value;
-    //alert(i);
-    //e.preventDefault();
-
-  }
-
   changeName = (val, i, field) => {
-    if(field == 'name'){
+    if(field === 'name'){
       
       let array = [];
       
@@ -57,7 +50,7 @@ class Page extends React.Component {
         k : array
       })
     }
-    else if (field == 'email'){
+    else if (field === 'email'){
       
       let array = [];
       
@@ -67,7 +60,7 @@ class Page extends React.Component {
         k : array
       })
     }
-    else if (field == 'phone'){
+    else if (field === 'phone'){
       
       let array = [];
       
@@ -77,7 +70,7 @@ class Page extends React.Component {
         k : array
       })
     }
-    else if (field == 'website'){
+    else if (field === 'website'){
       
       let array = [];
       
@@ -137,9 +130,9 @@ class Page extends React.Component {
   render() {
 
     return (
-      <div class="contr">{this.state.k.map( (value, index) => {
+      <div className="contr">{this.state.k.map( (value, index) => {
 
-        return  (<div class="card col-sm-12 col-md-3 col-lg-3">
+        return  (<div class="card col-xs-12 col-sm-6 col-md-3 col-lg-3">
             <Avatar user = {this.state.users} i = {index} />
             
             <Info user = {this.state.users} i = {index} /> 

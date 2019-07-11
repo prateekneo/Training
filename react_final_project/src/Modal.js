@@ -15,25 +15,25 @@ class Modal extends Component{
     edit_field = (field, name_id) => {
         
         let val;
-        if(field == 'name'){
+        if(field === 'name'){
           val = document.getElementById(name_id).value;
           this.setState({
             name : val
           })
         }
-        else if (field == 'email'){
+        else if (field === 'email'){
           val = document.getElementById(name_id).value;
           this.setState({
             email : val
           })
         }
-        else if (field == 'phone'){
+        else if (field === 'phone'){
           val = document.getElementById(name_id).value;
           this.setState({
             phone : val
           })
         }
-        else if (field == 'website'){
+        else if (field === 'website'){
           val = document.getElementById(name_id).value;
           this.setState({
             website : val
@@ -91,7 +91,7 @@ class Modal extends Component{
                 <div class="row">
                   <div class="form-group">
                     <span>Phone:</span>
-                    <span className="input_phone"><input type="phone" class="form-control" id={phone_id} value={this.state.phone} onChange={() => this.edit_field('phone', phone_id)} /></span>
+                    <span className="input_phone"><input type="tel" class="form-control" id={phone_id} value={this.state.phone} onChange={() => this.edit_field('phone', phone_id)} /></span>
                   </div>
                 </div>
                 <br />
@@ -102,7 +102,7 @@ class Modal extends Component{
                   </div>
                 </div>
                 <br />
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
               </form>
             </div>
             <div class="modal-footer">
